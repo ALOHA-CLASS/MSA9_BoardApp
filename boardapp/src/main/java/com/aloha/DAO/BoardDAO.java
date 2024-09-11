@@ -122,3 +122,4 @@ public class BoardDAO extends JDBC {
         return result;
     }
 }
+
