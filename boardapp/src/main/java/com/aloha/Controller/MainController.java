@@ -11,7 +11,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class MainController {
+public class MainController { 
 
     @FXML
     private Button btnExit;
