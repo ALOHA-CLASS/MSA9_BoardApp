@@ -1,13 +1,17 @@
 package com.aloha.DAO;
 
+<<<<<<< HEAD
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+=======
+>>>>>>> 02234e8 (게시글 등록)
 import com.aloha.DTO.Board;
 
 public class BoardDAO extends JDBC {
 
+<<<<<<< HEAD
 	
 	/**
 	 * 데이터 목록
@@ -67,6 +71,8 @@ public class BoardDAO extends JDBC {
     }
 
 
+=======
+>>>>>>> 02234e8 (게시글 등록)
     /**
      * 게시글 등록
      * @param board
@@ -91,6 +97,7 @@ public class BoardDAO extends JDBC {
         return result;
     }
 
+<<<<<<< HEAD
 
     /***
      * 데이터 수정
@@ -140,4 +147,7 @@ public class BoardDAO extends JDBC {
         }
         return result;
     }
+=======
+    
+>>>>>>> 02234e8 (게시글 등록)
 }
