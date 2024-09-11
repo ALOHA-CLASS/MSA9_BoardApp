@@ -1,10 +1,12 @@
 package com.aloha.DAO;
 
-import java.sql.SQLException; 
+import java.sql.SQLException;
 import com.aloha.DTO.Board;
 
 public class BoardDAO extends JDBC {
-  /**
+
+	
+	/**
 	 * 데이터 목록
 	 * @return
 	 */
@@ -37,33 +39,8 @@ public class BoardDAO extends JDBC {
 		}
 		return boardList;
 	}
-  /**
-   * 게시글 등록
-   * @param board
-   * @return
-   */
-  public int insert(Board board) {
-      int result = 0;
-
-      String sql = " INSERT INTO board( title, writer, content ) "
-                 + " VALUES( ?, ?, ? ) ";
-
-      try {
-          psmt = con.prepareStatement(sql);
-          psmt.setString(1, board.getTitle());
-          psmt.setString(2, board.getWriter());
-          psmt.setString(3, board.getContent());
-          result = psmt.executeUpdate();
-      } catch (Exception e) {
-          System.err.println("게시글 등록 중 예외 발생!");
-      }
-
-      return result;
-  }
-
-	/*
-  * 게시글 조회
-  */
+  
+  
   public Board select(int no) {
         Board board = new Board();
         String sql = " SELECT * "
@@ -85,22 +62,60 @@ public class BoardDAO extends JDBC {
         }
         return board;
     }
-   /*
-     * 게시글 삭제
-     */
-    public int delete(int no){
-        int result = 0;
-        String sql = " DELETE FROM board "
-                   + " WHERE no = ? ";
-        try {
-          psmt = con.prepareStatement(sql);			
-          psmt.setInt( 1, no);						
-          result = psmt.executeUpdate();				
 
-        } catch (SQLException e) {
-          System.err.println("게시글 삭제 시, 예외 발생");
-          e.printStackTrace();
+
+    /**
+     * 게시글 등록
+     * @param board
+     * @return
+     */
+    public int insert(Board board) {
+        int result = 0;
+
+        String sql = " INSERT INTO board( title, writer, content ) "
+                   + " VALUES( ?, ?, ? ) ";
+
+        try {
+            psmt = con.prepareStatement(sql);
+            psmt.setString(1, board.getTitle());
+            psmt.setString(2, board.getWriter());
+            psmt.setString(3, board.getContent());
+            result = psmt.executeUpdate();
+        } catch (Exception e) {
+            System.err.println("게시글 등록 중 예외 발생!");
         }
+
+        return result;
+    }
+
+
+    /***
+     * 데이터 수정
+     */
+    public int update(Board board){
+        int result = 0;
+        
+        String sql = " update board"
+						+"		set title = ?"
+						+ "		,writer = ?"
+						+ "		,content = ?"
+						+ "		,upd_date = now()"
+						+ "		,view=?"
+						+ "	where no = ?"; 
+
+        try {
+            psmt = con.prepareStatement(sql);
+            psmt.setString(1, board.getTitle());
+            psmt.setString(2, board.getWriter());
+            psmt.setString(3, board.getContent());
+            psmt.setInt(4, board.getView());
+            psmt.setInt(5, board.getView());
+            result = psmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("게시글 변경 시, 예외 발생");
+            e.printStackTrace();
+        }
+
         return result;
     }
 }
