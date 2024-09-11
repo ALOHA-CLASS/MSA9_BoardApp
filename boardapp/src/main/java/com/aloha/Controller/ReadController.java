@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 
 import com.aloha.App;
 import com.aloha.DTO.Board;
+import com.aloha.Service.BoardService;
+import com.aloha.Service.BoardServiceImpl;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -36,6 +38,8 @@ public class ReadController {
 
     @FXML
     private Label writer;
+
+    BoardService boardService = new BoardServiceImpl(); 
 
     int boardNo;
 
