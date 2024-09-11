@@ -4,16 +4,13 @@ import java.sql.SQLException;
 
 public class BoardDAO {
     
-    /**
-	 * 게시글 삭제
-	 * @param no
-	 * @return
-	 */
+    /*
+     * 게시글 삭제
+     */
     public int delete(int no){
         int result = 0;
         String sql = " DELETE FROM board "
                    + " WHERE no = ? ";
-        
         try {
 			psmt = con.prepareStatement(sql);			
 			psmt.setInt( 1, no);						
