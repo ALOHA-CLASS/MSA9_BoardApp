@@ -1,16 +1,12 @@
 package com.aloha.DAO;
 
 import java.sql.SQLException;
-<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
-=======
->>>>>>> 363a1eb (게시글 조회)
 
 import com.aloha.DTO.Board;
 
 public class BoardDAO extends JDBC {
-<<<<<<< HEAD
 
 	
 	/**
