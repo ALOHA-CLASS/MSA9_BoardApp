@@ -13,9 +13,7 @@ public class BoardDAO extends JDBC {
 		String sql = " SELECT * "
 				   + " FROM board ";
 		try {
-
 			stmt = con.createStatement();
-
 			rs = stmt.executeQuery(sql);
 			
 			while( rs.next() ) {
@@ -35,7 +33,6 @@ public class BoardDAO extends JDBC {
 			System.err.println("게시글 목록 조회 시, 예외 발생");
 			e.printStackTrace();
 		}
-		// 4. 게시글 목록 반환
 		return boardList;
 	}
 }
