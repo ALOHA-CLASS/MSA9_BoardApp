@@ -2,6 +2,8 @@ package com.aloha.Controller;
 
 import java.io.IOException;
 
+import com.aloha.App;
+
 import application.app;
 import application.DTO.Board;
 import application.Service.BoardService;
@@ -29,14 +31,14 @@ public class UpdateController {
         private BoardService boardService = new BoardServiceImpl();
 
         @FXML
-        void toback(ActionEvent event) throws IOException {
+        void toBack(ActionEvent event) throws IOException {
             String fxml = "UI/Read";
             FXMLLoader fxmlLoader = new FXMLLoader(app.class.getResource(fxml + ".fxml"));
             Parent root = fxmlLoader.load();
             ReadController changeController = (ReadController) fxmlLoader.getController();
             changeController.passData(boardNo);
 
-            app.setRoot(root);
+            App.setRoot(root);
         }
 
         @FXML
@@ -47,7 +49,7 @@ public class UpdateController {
             if (result > 0) {
                 System.out.println("수정 완료!");
             }
-            app.setRoot("UI/List");
+            App.setRoot("UI/List");
         }
 
         public void passData(int boardNo) {
