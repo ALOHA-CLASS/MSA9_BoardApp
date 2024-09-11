@@ -5,6 +5,8 @@ import java.util.List;
 
 import com.aloha.App;
 import com.aloha.DTO.Board;
+import com.aloha.Service.BoardService;
+import com.aloha.Service.BoardServiceImpl;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -13,6 +15,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -32,19 +35,19 @@ public class ListController {
     private Button btnMain;
 
     @FXML
-    private TableColumn<?, ?> colDate;
+    private TableColumn<Board, Integer> colDate;
 
     @FXML
-    private TableColumn<?, ?> colNo;
+    private TableColumn<Board, String> colNo;
 
     @FXML
-    private TableColumn<?, ?> colTitle;
+    private TableColumn<Board, String> colTitle;
 
     @FXML
-    private TableColumn<?, ?> colView;
+    private TableColumn<Board, Integer> colView;
 
     @FXML
-    private TableColumn<?, ?> colWriter;
+    private TableColumn<Board, String> colWriter;
 
 
 
@@ -52,7 +55,7 @@ public class ListController {
 	
 	Board currentBoard = new Board();
 	
-	public BoardService boardService = new BoardServiceimpl();
+	public BoardService boardService = new BoardServiceImpl();
 
 
     @FXML
@@ -63,6 +66,7 @@ public class ListController {
 		colTitle.setCellValueFactory(new PropertyValueFactory<>("Title"));
 		colWriter.setCellValueFactory(new PropertyValueFactory<>("Writer"));
 		colDate.setCellValueFactory(new PropertyValueFactory<>("RegDate"));
+	
 		
 		
 		ObservableList<Board> list = FXCollections.observableArrayList(boardList);
@@ -79,12 +83,33 @@ public class ListController {
     		
 		});
 		
+		boardTableView.setOnMouseClicked(new EventHandler <MouseEvent>() {
+	
+			public void handle(MouseEvent event) {
+				if(event.getClickCount() == 2) {
+					currentBoard = boardTableView.getSelectionModel().getSelectedItem();
+					try {
+						FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("com.aloha.UI.List.fxml"));
+						Parent root = App.loadFXML("com.aloha.UI.List");
+						ViewController viewController = fxmlLoader.getController();
+		
+						viewController.passDate(currentBoard);
+		
+						App.setRoot(root);
+						
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+			
+		}
+			}
+		});
 	}
 
       
 
     @FXML
-    void toInsert(ActionEvent event) {
+    void toInsert(ActionEvent event) throws Exception {
         App.setRoot("com.aloha.UI.Update");
 
     }
@@ -92,33 +117,8 @@ public class ListController {
 
 
     @FXML
-    void toMain(ActionEvent event) {
+    void toMain(ActionEvent event) throws Exception {
         App.setRoot("com.aloha.UI.Main");
     }
-
-
- boardTableView.setOnMouseClicked(new EventHandler <MouseEvent>(){
-	
-	public void handle(MouseEvent event) {
-		if(event.getClickCount() == 2) {
-			currentBoard = boardTableView.getSelectionModel().getSelectedItem();
-			try {
-				FXMLLoader fxmlLoader = App.loadFXML("com.aloha.UI.List");
-				Parent root = App.loadFXML("com.aloha.UI.List");
-				//Parent root = fxmlLoader.load();
-				ViewController viewController = fxmlLoader.getController();
-				viewController.passDate(currentBoard);
-
-				App.setRoot(root);
-				
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-	
-}
-	}
-});
-
-
 
 }
