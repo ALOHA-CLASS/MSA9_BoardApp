@@ -19,12 +19,12 @@
       </Label>
       <VBox alignment="CENTER" layoutX="242.0" layoutY="253.0" prefHeight="300.0" prefWidth="447.0" spacing="20.0">
          <children>
-            <Button fx:id="btnList" mnemonicParsing="false" onAction="#toList" prefHeight="100.0" prefWidth="232.0" text="게시글 목록">
+            <Button fx:id="btnList" mnemonicParsing="false" prefHeight="100.0" prefWidth="232.0" text="게시글 목록">
                <font>
                   <Font name="DotumChe" size="30.0" />
                </font>
             </Button>
-            <Button fx:id="btnExit" mnemonicParsing="false" onAction="#exit" prefHeight="105.0" prefWidth="232.0" text="종료하기">
+            <Button fx:id="btnExit" mnemonicParsing="false" prefHeight="105.0" prefWidth="232.0" text="종료하기">
                <font>
                   <Font name="Calibri" size="30.0" />
                </font>
