@@ -1,13 +1,10 @@
 package com.aloha.Controller;
 
-import java.io.IOException;
-
 import com.aloha.App;
+import com.aloha.DTO.Board;
+import com.aloha.Service.BoardService;
+import com.aloha.Service.BoardServiceImpl;
 
-import application.app;
-import application.DTO.Board;
-import application.Service.BoardService;
-import application.Service.BoardServiceImpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,9 +28,9 @@ public class UpdateController {
         private BoardService boardService = new BoardServiceImpl();
 
         @FXML
-        void toBack(ActionEvent event) throws IOException {
+        void toBack(ActionEvent event) throws Exception {
             String fxml = "UI/Read";
-            FXMLLoader fxmlLoader = new FXMLLoader(app.class.getResource(fxml + ".fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
             Parent root = fxmlLoader.load();
             ReadController changeController = (ReadController) fxmlLoader.getController();
             changeController.passData(boardNo);
