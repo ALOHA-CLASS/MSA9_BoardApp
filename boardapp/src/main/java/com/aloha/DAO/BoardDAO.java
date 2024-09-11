@@ -1,6 +1,9 @@
 package com.aloha.DAO;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.aloha.DTO.Board;
 
 public class BoardDAO extends JDBC {
@@ -12,7 +15,7 @@ public class BoardDAO extends JDBC {
 	 */
 	public List<Board> list() {
 		
-		List<Board> boardList = new ArrayList<Board>();
+		List<Board> boardList = new ArrayList<>();
 		
 		String sql = " SELECT * "
 				   + " FROM board ";
