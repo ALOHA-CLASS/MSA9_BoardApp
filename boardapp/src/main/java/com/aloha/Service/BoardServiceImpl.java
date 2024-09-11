@@ -1,8 +1,8 @@
-package application.Service;
+package com.aloha.Service;
 
 import java.util.List;
-import application.DAO.BoardDAO;
-import application.DTO.Board;
+import com.aloha.DAO.BoardDAO;
+import com.aloha.DTO.Board;
 
 /**
  *  게시판 기능 - 비즈니스 로직 클래스
