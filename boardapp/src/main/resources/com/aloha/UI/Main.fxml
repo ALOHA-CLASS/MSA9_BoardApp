@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="930.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="930.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aloha.Controller.MainController">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="200.0" layoutY="124.0" prefHeight="136.0" prefWidth="531.0" text="게시판 프로그램" textAlignment="CENTER" textFill="#3399bd">
          <font>
@@ -19,12 +19,12 @@
       </Label>
       <VBox alignment="CENTER" layoutX="242.0" layoutY="253.0" prefHeight="300.0" prefWidth="447.0" spacing="20.0">
          <children>
-            <Button fx:id="btnList" mnemonicParsing="false" onAction="#toList" prefHeight="100.0" prefWidth="232.0" text="게시글 목록">
+            <Button fx:id="btnList" mnemonicParsing="false" prefHeight="100.0" prefWidth="232.0" text="게시글 목록">
                <font>
                   <Font name="DotumChe" size="30.0" />
                </font>
             </Button>
-            <Button fx:id="btnExit" mnemonicParsing="false" onAction="#exit" prefHeight="105.0" prefWidth="232.0" text="종료하기">
+            <Button fx:id="btnExit" mnemonicParsing="false" prefHeight="105.0" prefWidth="232.0" text="종료하기">
                <font>
                   <Font name="Calibri" size="30.0" />
                </font>
