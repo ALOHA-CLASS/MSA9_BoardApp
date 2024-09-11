@@ -40,7 +40,7 @@ public class ReadController {
     int boardNo;
 
     @FXML
-    void back(ActionEvent event) throws IOException {
+    void back(ActionEvent event) throws Exception {
         App.setRoot("UI/List");
     }
 
@@ -59,7 +59,7 @@ public class ReadController {
 		this.boardNo = boardNo;
 		Board board = boardService.select(boardNo);
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         
 		title.setText(board.getTitle());
 		writer.setText(board.getWriter());
