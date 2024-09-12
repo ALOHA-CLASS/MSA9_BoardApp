@@ -72,4 +72,22 @@ public class ReadController {
         upd_date.setText(sdf.format(board.getUpdDate()));
 	}
 
+	    public void passData1(Board currentboard) {
+		this.board = currentboard;
+		title.setText(currentboard.getTitle());
+    	content.setText(currentboard.getContent());
+    	writer.setText(currentboard.getWriter());
+
+    	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    	reg_date.setText(dateFormat.format(currentboard.getRegDate()));
+        upd_date.setText(dateFormat.format(currentboard.getUpdDate()));
+        if(currentboard.getUpdDate()==null) {
+        	upd_date.setText("수정일 없음");
+        }
+        else {
+        	upd_date.setText(dateFormat.format(currentboard.getUpdDate()));
+        }
+    	
+	}
+
 }
