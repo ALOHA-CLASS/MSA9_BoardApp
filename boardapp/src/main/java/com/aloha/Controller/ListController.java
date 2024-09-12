@@ -89,7 +89,7 @@ public class ListController {
 				if(event.getClickCount() == 2) {
 					currentBoard = boardTableView.getSelectionModel().getSelectedItem();
 					try {
-						FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("com.aloha.UI.ReadBoard"));
+						FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("UI/ReadBoard"));
 						Parent root = fxmlLoader.load();
 						ReadController readController = fxmlLoader.getController();
 		
@@ -113,7 +113,7 @@ public class ListController {
 
     @FXML
     void toInsert(ActionEvent event) throws Exception {
-        App.setRoot("com.aloha.UI.Update");
+        App.setRoot("UI/Crate");
 
     }
 
@@ -121,7 +121,7 @@ public class ListController {
 
     @FXML
     void toMain(ActionEvent event) throws Exception {
-        App.setRoot("com.aloha.UI.Main");
+        App.setRoot("UI/Main");
     }
 
 }
