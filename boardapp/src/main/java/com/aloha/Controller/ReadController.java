@@ -33,8 +33,12 @@ public class ReadController {
     @FXML
     private Button toUpdate;
 
+    @FXML 
+    private Button btnDel;
+
     @FXML
     private Label upd_date;
+
 
     @FXML
     private Label writer;
@@ -115,4 +119,9 @@ public class ReadController {
     	
 	}
 
+    @FXML
+    void toDel(ActionEvent event) throws Exception {
+        boardService.delete(boardNo);
+        App.setRoot("UI/List");
+    }
 }

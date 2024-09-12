@@ -22,5 +22,6 @@
       <Label fx:id="upd_date" layoutX="492.0" layoutY="45.0" prefHeight="14.0" prefWidth="81.0" text="날짜" />
       <Label fx:id="reg_date" layoutX="492.0" layoutY="29.0" prefHeight="14.0" prefWidth="81.0" text="날짜" />
       <Button fx:id="toUpdate" layoutX="506.0" layoutY="358.0" mnemonicParsing="false" onAction="#update" text="글수정" />
+      <Button fx:id="btnDel" layoutX="281.0" layoutY="358.0" mnemonicParsing="false" onAction="#toDel" text="삭제" />
    </children>
 </AnchorPane>
