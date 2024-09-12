@@ -93,7 +93,7 @@ public class ListController {
 						Parent root = fxmlLoader.load();
 						ReadController readController = fxmlLoader.getController();
 		
-						readController.passDate(currentBoard);
+						readController.passDatacurrentBoard);
 		
 						App.setRoot(root);
 						
