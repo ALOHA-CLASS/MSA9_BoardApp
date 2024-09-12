@@ -93,13 +93,16 @@ public class ListController {
 						Parent root = fxmlLoader.load();
 						ReadController readController = fxmlLoader.getController();
 		
-						readController.passData(currentBoard);
+						readController.passData(currentBoard.getNo());
 		
 						App.setRoot(root);
 						
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
+					catch(Exception e){
+							e.printStackTrace();
+						}
 			
 		}
 			}
