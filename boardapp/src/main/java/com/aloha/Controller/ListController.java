@@ -97,7 +97,7 @@ public class ListController {
 						Parent root = fxmlLoader.load();
 
 						ReadController readController = fxmlLoader.getController();
-						readController.passData(currentBoard.getNo());
+						readController.passData1(currentBoard);
 		
 						App.setRoot(root);
 						
