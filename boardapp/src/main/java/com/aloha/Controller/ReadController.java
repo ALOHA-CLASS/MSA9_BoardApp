@@ -49,12 +49,12 @@ public class ReadController {
     }
 
     @FXML
-    void update(ActionEvent event) {
+    void update(ActionEvent event) throws Exception {
         String fxml = "UI/Update";
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
 		Parent root = fxmlLoader.load();
-		UpdateController changeController = (UpdateController)fxmlLoader.getController();
-		UpdateController.passData(boardNo);
+		UpdateController updateController = (UpdateController)fxmlLoader.getController();
+		updateController.passData(boardNo);
 		
 		App.setRoot(root);
     }
