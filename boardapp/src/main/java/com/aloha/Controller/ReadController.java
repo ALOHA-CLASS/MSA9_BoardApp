@@ -40,8 +40,27 @@ public class ReadController {
     private Label writer;
 
     BoardService boardService = new BoardServiceImpl(); 
-  Board board = new Board();
+    Board board;
     int boardNo;
+
+    @FXML
+    public void initialize() {
+        System.out.println("조회 : boardNo : " + this.boardNo);
+        Board board = boardService.select(this.boardNo);
+
+		title.setText(board.getTitle());
+		writer.setText(board.getWriter());
+		content.setText(board.getContent());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        if(board.getUpdDate()==null) {
+            upd_date.setText("수정일 없음");
+        }
+        else {
+            upd_date.setText(dateFormat.format(board.getUpdDate()));
+        }
+        // reg_date.setText(dateFormat.format(board.getRegDate()));
+
+    }
 
     @FXML
     void back(ActionEvent event) throws Exception {
@@ -61,18 +80,24 @@ public class ReadController {
 
     public void passData(int boardNo) throws IOException {
 		this.boardNo = boardNo;
-		Board board = boardService.select(boardNo);
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        
+        System.out.println("조회 : boardNo : " + this.boardNo);
+        Board board = boardService.select(this.boardNo);
+
 		title.setText(board.getTitle());
 		writer.setText(board.getWriter());
 		content.setText(board.getContent());
-        reg_date.setText(sdf.format(board.getRegDate()));
-        upd_date.setText(sdf.format(board.getUpdDate()));
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        if(board.getUpdDate()==null) {
+            upd_date.setText("수정일 없음");
+        }
+        else {
+            upd_date.setText(dateFormat.format(board.getUpdDate()));
+        }
+		
 	}
 
-	    public void passData1(Board currentboard) {
+    public void passData1(Board currentboard) {
 		this.board = currentboard;
 		title.setText(currentboard.getTitle());
     	content.setText(currentboard.getContent());
