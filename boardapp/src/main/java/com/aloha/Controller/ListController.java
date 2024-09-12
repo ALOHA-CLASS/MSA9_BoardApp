@@ -89,17 +89,20 @@ public class ListController {
 				if(event.getClickCount() == 2) {
 					currentBoard = boardTableView.getSelectionModel().getSelectedItem();
 					try {
-						FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("com.aloha.UI.List.fxml"));
-						Parent root = App.loadFXML("com.aloha.UI.List");
-						ViewController viewController = fxmlLoader.getController();
+						FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("UI/ReadBoard"));
+						Parent root = fxmlLoader.load();
+						ReadController readController = fxmlLoader.getController();
 		
-						viewController.passDate(currentBoard);
+						readController.passData(currentBoard.getNo());
 		
 						App.setRoot(root);
 						
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
+					catch(Exception e){
+							e.printStackTrace();
+						}
 			
 		}
 			}
@@ -110,7 +113,7 @@ public class ListController {
 
     @FXML
     void toInsert(ActionEvent event) throws Exception {
-        App.setRoot("com.aloha.UI.Update");
+        App.setRoot("UI/Create");
 
     }
 
@@ -118,7 +121,7 @@ public class ListController {
 
     @FXML
     void toMain(ActionEvent event) throws Exception {
-        App.setRoot("com.aloha.UI.Main");
+        App.setRoot("UI/Main");
     }
 
 }
