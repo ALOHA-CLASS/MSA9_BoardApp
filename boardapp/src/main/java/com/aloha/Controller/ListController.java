@@ -85,22 +85,26 @@ public class ListController {
 		
 		boardTableView.setOnMouseClicked(new EventHandler <MouseEvent>() {
 	
-			public void handle(MouseEvent event) {
+				public void handle(MouseEvent event) {
 				if(event.getClickCount() == 2) {
-					currentBoard = boardTableView.getSelectionModel().getSelectedItem();
+					
 					try {
-						FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("UI/ReadBoard"));
+						currentBoard = boardTableView.getSelectionModel().getSelectedItem();
+						
+						String fxml = "UI/ReadBoard" ;		
+
+						FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml +".fxml"));
 						Parent root = fxmlLoader.load();
+
 						ReadController readController = fxmlLoader.getController();
-		
-						readController.passData(currentBoard.getNo());
+						readController.passData1(currentBoard);
 		
 						App.setRoot(root);
 						
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
-					catch(Exception e){
+						catch(Exception e){
 							e.printStackTrace();
 						}
 			
