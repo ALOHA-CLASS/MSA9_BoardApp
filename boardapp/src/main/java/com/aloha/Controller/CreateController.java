@@ -23,8 +23,8 @@ public class CreateController {
     void create(ActionEvent event) throws Exception {
         Board board = new Board();
         board.setTitle(title.getText());
-        board.setWriter(title.getText());
-        board.setContent(title.getText());
+        board.setWriter(writer.getText());
+        board.setContent(content.getText());
         BoardService service = new BoardServiceImpl();
         service.insert(board);
         App.setRoot("UI/List");
