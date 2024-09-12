@@ -40,7 +40,7 @@ public class ReadController {
     private Label writer;
 
     BoardService boardService = new BoardServiceImpl(); 
-
+  Board board = new Board();
     int boardNo;
 
     @FXML
