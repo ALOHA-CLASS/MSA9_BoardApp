@@ -89,11 +89,11 @@ public class ListController {
 				if(event.getClickCount() == 2) {
 					currentBoard = boardTableView.getSelectionModel().getSelectedItem();
 					try {
-						FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("com.aloha.UI.List.fxml"));
-						Parent root = App.loadFXML("com.aloha.UI.List");
-						ViewController viewController = fxmlLoader.getController();
+						FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("com.aloha.UI.ReadBoard.fxml"));
+						Parent root = fxmlLoader.load();
+						ReadController readController = fxmlLoader.getController();
 		
-						viewController.passDate(currentBoard);
+						readController.passDate(currentBoard);
 		
 						App.setRoot(root);
 						
