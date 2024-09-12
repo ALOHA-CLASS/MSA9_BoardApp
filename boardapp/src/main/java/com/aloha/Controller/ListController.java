@@ -73,16 +73,16 @@ public class ListController {
 		
 		boardTableView.setItems(list);
 		
-			boardTableView.getSelectionModel().selectedItemProperty().addListener( new ChangeListener<Board>() {
+		boardTableView.getSelectionModel().selectedItemProperty().addListener( new ChangeListener<Board>() {
 
 			@Override
 			public void changed(ObservableValue<? extends Board> arg0, Board arg1, Board arg2) {
 				
 				currentBoard = boardTableView.getSelectionModel().getSelectedItem();	// 선택된 항목
 			}
-    		
+			
 		});
-		
+	
 		boardTableView.setOnMouseClicked(new EventHandler <MouseEvent>() {
 	
 				public void handle(MouseEvent event) {
@@ -97,16 +97,18 @@ public class ListController {
 						Parent root = fxmlLoader.load();
 
 						ReadController readController = fxmlLoader.getController();
-						readController.passData1(currentBoard);
+						// readController.passData1(currentBoard);
+						System.out.println("List 에서 클릭 시 no : " + currentBoard.getNo());
+						readController.passData(currentBoard.getNo());
 		
 						App.setRoot(root);
 						
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
-						catch(Exception e){
-							e.printStackTrace();
-						}
+					catch(Exception e){
+						e.printStackTrace();
+					}
 			
 		}
 			}

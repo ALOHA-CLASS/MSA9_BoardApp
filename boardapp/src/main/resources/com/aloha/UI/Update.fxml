@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aloha.Controller.UpdateController">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="56.0" prefHeight="30.0" prefWidth="70.0" text="Title">
          <font>
@@ -28,8 +28,8 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="UpdTitle" layoutX="115.0" layoutY="60.0" prefHeight="22.0" prefWidth="289.0" promptText="제목" />
-      <TextField fx:id="UpdWriter" layoutX="114.0" layoutY="116.0" prefHeight="22.0" prefWidth="179.0" promptText="작성자" />
+      <TextField fx:id="updTitle" layoutX="115.0" layoutY="60.0" prefHeight="22.0" prefWidth="289.0" promptText="제목" />
+      <TextField fx:id="updWriter" layoutX="114.0" layoutY="116.0" prefHeight="22.0" prefWidth="179.0" promptText="작성자" />
       <Button alignment="CENTER" contentDisplay="CENTER" layoutX="490.0" layoutY="360.0" mnemonicParsing="false" onAction="#toSave" prefHeight="27.0" prefWidth="65.0" text="Save">
          <font>
             <Font size="14.0" />
@@ -40,6 +40,6 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <TextField fx:id="UpdContent" alignment="TOP_LEFT" layoutX="113.0" layoutY="170.0" prefHeight="178.0" prefWidth="442.0" promptText="제목" />
+      <TextField fx:id="updContent" alignment="TOP_LEFT" layoutX="113.0" layoutY="170.0" prefHeight="178.0" prefWidth="442.0" promptText="제목" />
    </children>
 </AnchorPane>

@@ -1,6 +1,5 @@
 package com.aloha.DTO;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import lombok.AllArgsConstructor;

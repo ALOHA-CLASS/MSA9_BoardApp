@@ -58,6 +58,9 @@ public class BoardDAO extends JDBC {
             board.setTitle( rs.getString("title") );
             board.setWriter( rs.getString("writer") );
             board.setContent( rs.getString("content") );
+            board.setRegDate( rs.getTimestamp("reg_date") );
+				    board.setUpdDate( rs.getTimestamp("upd_date") );
+            board.setView( rs.getInt("view") );
           }	
         } catch (SQLException e) {
           System.err.println("게시글 조회 오류");
@@ -103,7 +106,6 @@ public class BoardDAO extends JDBC {
 						+ "		,writer = ?"
 						+ "		,content = ?"
 						+ "		,upd_date = now()"
-						+ "		,view=?"
 						+ "	where no = ?"; 
 
         try {
@@ -111,8 +113,7 @@ public class BoardDAO extends JDBC {
             psmt.setString(1, board.getTitle());
             psmt.setString(2, board.getWriter());
             psmt.setString(3, board.getContent());
-            psmt.setInt(4, board.getView());
-            psmt.setInt(5, board.getView());
+            psmt.setInt(4, board.getNo());
             result = psmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println("게시글 변경 시, 예외 발생");

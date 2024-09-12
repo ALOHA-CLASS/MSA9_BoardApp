@@ -28,7 +28,7 @@ public class UpdateController {
 
     @FXML
     void toBack(ActionEvent event) throws Exception {
-        String fxml = "UI/Read";
+        String fxml = "UI/ReadBoard";
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         Parent root = fxmlLoader.load();
         ReadController changeController = (ReadController) fxmlLoader.getController();
